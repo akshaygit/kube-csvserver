@@ -9,7 +9,7 @@ csvserver-ss-0.csvserver-h.default.svc.cluster.local
 Handy commands for creating/deleteing csvserver objects -
 
 **Config maps**:
-
+---------------------------------------------------------------
 Create
 
 ```
@@ -29,11 +29,10 @@ kubectl delete -f inputfile-config-map.yml
 
 kubectl delete -f prometheus-config-map.yml
 ```
-
-
+---------------------------------------------------------------
 
 **CsvServer** :
-
+---------------------------------------------------------------
 Create
 
 ```
@@ -46,7 +45,6 @@ kubectl create -f csvserver-headless-service.yml
 
 Delete
 
-
 ```
 kubectl delete -f csvserver-statefulset.yml
 
@@ -54,10 +52,10 @@ kubectl delete -f csvserver-app-service.yml
 
 kubectl delete -f csvserver-headless-service.yml
 ```
-
+---------------------------------------------------------------
 
 **prometheus** :
-
+---------------------------------------------------------------
 Create
 
 ```
@@ -74,4 +72,4 @@ kubectl delete -f prometheus-deploy.yml
 
 kubectl delete -f prometheus-service.yml
 ```
-
+---------------------------------------------------------------
