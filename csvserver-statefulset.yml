@@ -1,0 +1,37 @@
+apiVersion: apps/v1
+kind: StatefulSet
+metadata:
+  name: csvserver-ss
+  labels:
+    name: csvserver-ss
+    app: csvserver-app
+spec:
+  template:
+    metadata:
+      name: csvserver-app-pod
+      labels: 
+        name: csvserver-app-pod
+        app: csvserver-app
+    spec:
+      containers:
+        - name: csvserver-app
+          image: infracloudio/csvserver
+          ports:
+            - containerPort: 9300
+          volumeMounts:
+          - name: data-volume
+            mountPath: /csvserver/inputdata
+            subPath: inputdata
+          envFrom:
+            - configMapRef:
+                name: app-config
+      volumes:
+      - name: data-volume
+        configMap:
+          name: csv-inputdata
+      subdomain: csvserver-h
+      hostname: csvserver-app-pod
+  selector:
+    matchLabels:
+      app: csvserver-app
+  serviceName: csvserver-h 

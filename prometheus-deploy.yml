@@ -1,0 +1,33 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: prometheus-deploy
+  labels:
+    name: prometheus-deploy
+    app: csvserver-app
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      name: prometheus-pod
+      app: csvserver-app   
+  template:
+    metadata:
+      name: prometheus-pod
+      labels: 
+        name: prometheus-pod
+        app: csvserver-app
+    spec:
+      containers:
+        - name: prometheus-app
+          image: prom/prometheus
+          ports:
+            - containerPort: 9090
+          volumeMounts:
+          - name: data-volume
+            mountPath: /etc/prometheus/prometheus.yml
+            subPath: prometheus.yml
+      volumes:
+      - name: data-volume
+        configMap:
+          name: prometheus-config 

@@ -1,0 +1,16 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: csv-inputdata
+data:
+  inputdata: |
+     1, 713
+     2, 724
+     3, 685
+     4, 385
+     5, 564
+     6, 599
+     7, 288
+     8, 516
+     9, 196
+     10, 909

@@ -1,0 +1,16 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: prometheus-external-service
+  labels:
+    name: prometheus-external-service
+    app: csvserver-app
+spec:
+  type: NodePort
+  ports:
+    - port: 9090
+      targetPort: 9090
+      nodePort: 30002
+  selector:
+    name: prometheus-pod
+    app: csvserver-app
