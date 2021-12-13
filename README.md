@@ -4,9 +4,10 @@ Pre-requisite : Kubernetes cluster up and running
 
 Unique Cname for csvserver :
 
-csvserver-ss-0.csvserver-h.default.svc.cluster.local
+  **csvserver-ss-0.csvserver-h.default.svc.cluster.local**
 
-Handy commands for creating/deleteing csvserver objects -
+Handy commands for creating/deleting csvserver objects -
+---------------------------------------------------------------
 
 **Config maps**:
 ---------------------------------------------------------------
